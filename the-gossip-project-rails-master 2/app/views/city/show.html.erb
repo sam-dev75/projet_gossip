@@ -1,0 +1,24 @@
+
+<h3>Voici tous les potins pour la ville <%= @city.name %></h3>
+
+<div class="row">
+  <% @gossips_city.each do |gossip| %>
+    <div class="col-sm-6" style="padding: 30px">
+      <div class="card">
+        <div class="card-header">
+          <h4><%= gossip.title %></h4>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">A été écrit par <%= gossip.user.first_name %></h5>
+          <%= link_to "En savoir plus...", gossip_path(gossip.id), class:"btn btn-primary" %>
+          <% if gossip.likes.where(user_id: current_user).count > 0 %>
+            <%= link_to "Dislike", like_path(:id => gossip.likes.sample), class:"btn btn-danger", data: { method: "DELETE" } %>
+          <% else %>
+            <%= link_to "liker", like_index_path(:id => gossip.id), class:"btn btn-danger", data: { method: "post" } %>
+          <% end %>
+          <%= gossip.likes.count %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

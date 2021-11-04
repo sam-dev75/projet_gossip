@@ -1,0 +1,33 @@
+<% if @gossip.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+    <ul>
+      <% @gossip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="card create-potin">
+  <div class="card-header">
+    <h2>Création d'un potin</h2>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+        <%= label_tag 'Titre de ton potin' %>
+        <%= text_field_tag 'title' %>
+        <br /> <br />
+
+        <%= label_tag 'Description de ton potin' %>
+        <%= text_area_tag 'content' %>
+        <br /> <br />
+
+        <%= submit_tag "Soumet ton potin" %>
+
+      <% end %>
+    </blockquote>
+  </div>
+</div>

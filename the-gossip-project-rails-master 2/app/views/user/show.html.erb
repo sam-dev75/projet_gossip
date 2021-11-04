@@ -1,0 +1,13 @@
+<div class="card user-card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Tu es sur la page de <%= @user.first_name %></h5>
+    <p class="card-text">Description : <%= @user.description %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Nom : <%= @user.last_name %></li>
+    <li class="list-group-item">Prenom : <%= @user.first_name %></li>
+    <li class="list-group-item">Email : <%= @user.email %></li>
+    <li class="list-group-item">Age : <%= @user.age %></li>
+    <li class="list-group-item">Ville : <%= link_to @user.city.name, city_path(@user.city_id) %></li>
+  </ul>
+</div>

@@ -1,0 +1,23 @@
+
+<div class="card create-potin">
+  <div class="card-header">
+    <h2>Connexion</h2>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+        <%= label_tag 'E-mail' %>
+        <%= text_field_tag 'email' %>
+        <br /> <br />
+
+        <%= label_tag 'Mot de passe' %>
+        <%= password_field_tag 'password' %>
+        <br /> <br />
+
+        <%= submit_tag "Connexion" %>
+
+      <% end %>
+    </blockquote>
+  </div>
+</div>

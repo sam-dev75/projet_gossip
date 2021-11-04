@@ -1,0 +1,24 @@
+<div class="card edit-comment">
+
+  <div class="card-header">
+    <h2>Editer le commentaire</h2>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+    <%= form_for @comment do |f| %>
+    <div class="form-group">
+    <label> Contenu </label>
+    <%= f.text_area :content, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+    <button type="submit" class="btn btn-warning">Modifier le commentaire</button>
+    </div>
+    <% end %>
+    </blockquote>
+  </div>
+
+</div>
+
+<div class="supp-comment">
+<p>Tu peux aussi supprimer le commentaire :</p>
+<%= link_to "Supprimer", @comment, controller: :comment, method: :delete, class:"btn btn-danger btn-sm", role:"button"%>
